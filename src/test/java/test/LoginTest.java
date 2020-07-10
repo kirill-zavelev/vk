@@ -12,6 +12,7 @@ public class LoginTest extends BaseTest {
                     .setLogin()
                     .setPassword()
                     .clickLogin()
+                    .openUserProfile()
                     .getActualUserName();
 
         Assert.assertEquals(actualUserName, LOGGED_IN_USER_NAME, "Username is not valid");

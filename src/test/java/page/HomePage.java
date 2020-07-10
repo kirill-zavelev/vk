@@ -10,8 +10,17 @@ public class HomePage extends AbstractPage {
         super(driver);
     }
 
-    @FindBy(xpath = "/div[@class='top_profile_name' and text()='Кирилл']")
+    @FindBy(xpath = "//h1[@class='rhpdm']")
     private WebElement loggedInUserName;
+
+    @FindBy(xpath = "//a[@href='/kirill_zavelev/']")
+    private WebElement userProfileBtn;
+
+    public HomePage openUserProfile() {
+        waitForElementToBeClickable(userProfileBtn).click();
+
+        return this;
+    }
 
     public String getActualUserName() {
         return loggedInUserName.getText();
